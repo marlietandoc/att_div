@@ -1,4 +1,6 @@
-Analysis code and data for Tandoc et al. (2022) Dividing attention hurts learning in adults but not children.
+Analysis code and data for Tandoc et al. (2022) Dividing attention hurts learning in adults but not children
+10.31234/osf.io/aqw28
+
 By: Marlie Tandoc
 
 
