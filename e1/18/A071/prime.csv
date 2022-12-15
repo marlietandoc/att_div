@@ -1,0 +1,49 @@
+"","X","age","animation_time_between_frames","appeared_in_n_back_task","condition","date","difficulty","difficulty_category","image_folder_path","image_name","n_back_block_total","n_back_blocks_reversed","n_back_display_time","n_back_focal_image_height","n_back_image_overlap","n_back_interstimulus_interval","n_back_max_difficulty","n_back_max_errors_to_raise_difficulty","n_back_min_errors_to_lower_difficulty","n_back_practice_max_difficulty","n_back_prime_image_height","n_back_prime_list_name","n_back_start_difficulty","n_back_task","n_back_task_critical_age","output_location","participant","participant_num","position","practice_run","prime_image_display_time","prime_task","reaction_time","response_time","set","user_response","younger_than_or_at_critical_age","response_correct","response_uncertain"
+"1",1,18,1,0,3,"Wed Apr  3 09:10:23 2019",7,"old","images/prime/task/A/watch","watch",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,0,1,1.5,1,1.29944014549,NA,"A","watch
+",0,1,0
+"2",2,18,1,0,3,"Wed Apr  3 09:10:23 2019",6,"old","images/prime/task/A/cat","cat",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,1,1,1.5,1,0.746663093567,NA,"A","cat",0,1,0
+"3",3,18,1,1,3,"Wed Apr  3 09:10:23 2019",6,"old","images/prime/task/B/pumpkin","pumpkin",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,2,1,1.5,1,0.455729007721,NA,"B","pumpkin",0,1,0
+"4",4,18,1,1,3,"Wed Apr  3 09:10:23 2019",7,"old","images/prime/task/B/chair","chair",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,3,1,1.5,1,0.434237003326,NA,"B","chair",0,1,0
+"5",5,18,1,0,3,"Wed Apr  3 09:10:23 2019",6,"old","images/prime/task/A/foot","foot",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,4,1,1.5,1,0.816763877869,NA,"A","foot",0,1,0
+"6",6,18,1,0,3,"Wed Apr  3 09:10:23 2019",7,"old","images/prime/task/A/horse","horse",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,5,1,1.5,1,0.616909980774,NA,"A","horse",0,1,0
+"7",7,18,1,0,3,"Wed Apr  3 09:10:23 2019",8,"old","images/prime/task/A/whistle","whistle",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,6,1,1.5,1,0.315774917603,NA,"A","whistle",0,1,0
+"8",8,18,1,1,3,"Wed Apr  3 09:10:23 2019",7,"old","images/prime/task/B/mountain","mountain",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,7,1,1.5,1,0.434140920639,NA,"B","mountain",0,1,0
+"9",9,18,1,1,3,"Wed Apr  3 09:10:23 2019",8,"old","images/prime/task/B/comb","comb",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,8,1,1.5,1,0.504922151566,NA,"B","comb",0,1,0
+"10",10,18,1,1,3,"Wed Apr  3 09:10:23 2019",6,"old","images/prime/task/B/ball","ball",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,9,1,1.5,1,0.814810991287,NA,"B","ball",0,1,0
+"11",11,18,1,1,3,"Wed Apr  3 09:10:23 2019",5,"old","images/prime/task/B/hand","hand",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,10,1,1.5,1,0.89734005928,NA,"B","hand",0,1,0
+"12",12,18,1,1,3,"Wed Apr  3 09:10:23 2019",6,"old","images/prime/task/B/elephant","elephant",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,11,1,1.5,1,0.675179958344,NA,"B","elephant",0,1,0
+"13",13,18,1,0,3,"Wed Apr  3 09:10:23 2019",6,"old","images/prime/task/A/monkey","monkey",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,12,1,1.5,1,0.842105865479,NA,"A","monkey",0,1,0
+"14",14,18,1,0,3,"Wed Apr  3 09:10:23 2019",7,"old","images/prime/task/A/banana","banana",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,13,1,1.5,1,0.562299966812,NA,"A","banana",0,1,0
+"15",15,18,1,0,3,"Wed Apr  3 09:10:23 2019",5,"old","images/prime/task/A/ladder","ladder",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,14,1,1.5,1,0.862425088882,NA,"A","ladder",0,1,0
+"16",16,18,1,0,3,"Wed Apr  3 09:10:23 2019",7,"old","images/prime/task/A/penguin","penguin",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,15,1,1.5,1,0.816243171692,NA,"A","penguin",0,1,0
+"17",17,18,1,0,3,"Wed Apr  3 09:10:23 2019",6,"old","images/prime/task/A/scissors","scissors",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,16,1,1.5,1,0.318603992462,NA,"A","scissors",0,1,0
+"18",18,18,1,1,3,"Wed Apr  3 09:10:23 2019",7,"old","images/prime/task/B/sandwich","sandwich",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,17,1,1.5,1,0.299129009247,NA,"B","sandwich",0,1,0
+"19",19,18,1,0,3,"Wed Apr  3 09:10:23 2019",5,"old","images/prime/task/A/table","table",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,18,1,1.5,1,0.598706960678,NA,"A","table",0,1,0
+"20",20,18,1,1,3,"Wed Apr  3 09:10:23 2019",7,"old","images/prime/task/B/apple","apple",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,19,1,1.5,1,0.934636831284,NA,"B","apple",0,1,0
+"21",21,18,1,1,3,"Wed Apr  3 09:10:23 2019",6,"old","images/prime/task/B/sock","sock",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,20,1,1.5,1,1.17342090607,NA,"B","sock",0,1,0
+"22",22,18,1,0,3,"Wed Apr  3 09:10:23 2019",7,"old","images/prime/task/A/hanger","hanger",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,21,1,1.5,1,0.0211999416351,NA,"A","clothes hanger",0,1,0
+"23",23,18,1,1,3,"Wed Apr  3 09:10:23 2019",7,"old","images/prime/task/B/key","key",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,22,1,1.5,1,0.665374040604,NA,"B","key",0,1,0
+"24",24,18,1,1,3,"Wed Apr  3 09:10:23 2019",7,"old","images/prime/task/B/carrot","carrot",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,23,1,1.5,1,1.18719816208,NA,"B","carrot",0,1,0
+"25",25,18,1,1,3,"Wed Apr  3 09:10:23 2019",5,"old","images/prime/task/B/kangaroo","kangaroo",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,24,1,1.5,1,1.29717087746,NA,"B","kangaroo",0,1,0
+"26",26,18,1,0,3,"Wed Apr  3 09:10:23 2019",6,"old","images/prime/task/A/piano","piano",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,25,1,1.5,1,0.883888959885,NA,"A","piano",0,1,0
+"27",27,18,1,0,3,"Wed Apr  3 09:10:23 2019",7,"old","images/prime/task/A/grapes","grapes",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,26,1,1.5,1,0.752642869949,NA,"A","grapes",0,1,0
+"28",28,18,1,0,3,"Wed Apr  3 09:10:23 2019",7,"old","images/prime/task/A/truck","truck",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,27,1,1.5,1,0.491863965988,NA,"A","truck",0,1,0
+"29",29,18,1,1,3,"Wed Apr  3 09:10:23 2019",6,"old","images/prime/task/B/camel","camel",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,28,1,1.5,1,0.604723930359,NA,"B","camel",0,1,0
+"30",30,18,1,0,3,"Wed Apr  3 09:10:23 2019",8,"old","images/prime/task/A/pear","pear",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,29,1,1.5,1,0.509150028229,NA,"A","pear",0,1,0
+"31",31,18,1,0,3,"Wed Apr  3 09:10:23 2019",7,"old","images/prime/task/A/snowman","snowman",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,30,1,1.5,1,1.30651092529,NA,"A","snowman",0,1,0
+"32",32,18,1,1,3,"Wed Apr  3 09:10:23 2019",4,"old","images/prime/task/B/car","car",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,31,1,1.5,1,1.18520998955,NA,"B","car",0,1,0
+"33",33,18,1,0,3,"Wed Apr  3 09:10:23 2019",5,"old","images/prime/task/A/kite","kite",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,32,1,1.5,1,1.0592648983,NA,"A","kite",0,1,0
+"34",34,18,1,0,3,"Wed Apr  3 09:10:23 2019",6,"old","images/prime/task/A/tree","tree",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,33,1,1.5,1,0.874633073807,NA,"A","tree",0,1,0
+"35",35,18,1,1,3,"Wed Apr  3 09:10:23 2019",5,"old","images/prime/task/B/guitar","guitar",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,34,1,1.5,1,1.3254339695,NA,"B","guitar",0,1,0
+"36",36,18,1,1,3,"Wed Apr  3 09:10:23 2019",5,"old","images/prime/task/B/ear","ear",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,35,1,1.5,1,1.03506708145,NA,"B","ear",0,1,0
+"37",37,18,1,1,3,"Wed Apr  3 09:10:23 2019",6,"old","images/prime/task/B/umbrella","umbrella",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,36,1,1.5,1,0.663036108017,NA,"B","umbrella",0,1,0
+"38",38,18,1,0,3,"Wed Apr  3 09:10:23 2019",6,"old","images/prime/task/A/fish","fish",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,37,1,1.5,1,1.21518588066,NA,"A","fish",0,1,0
+"39",39,18,1,1,3,"Wed Apr  3 09:10:23 2019",7,"old","images/prime/task/B/candle","candle",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,38,1,1.5,1,1.28861188889,NA,"B","cnadle",0,1,0
+"40",40,18,1,1,3,"Wed Apr  3 09:10:23 2019",7,"old","images/prime/task/B/bowl","bowl",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,39,1,1.5,1,1.18074393272,NA,"B","cup
+",0,1,0
+"41",41,18,1,0,3,"Wed Apr  3 09:10:23 2019",5,"old","images/prime/task/A/bed","bed",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,40,1,1.5,1,0.20792388916,NA,"A","bed",0,1,0
+"42",42,18,1,1,3,"Wed Apr  3 09:10:23 2019",7,"old","images/prime/task/B/flower","flower",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,41,1,1.5,1,0.198884010315,NA,"B","flower",0,1,0
+"43",43,18,1,0,3,"Wed Apr  3 09:10:23 2019",6,"old","images/prime/task/A/clock","clock",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,42,1,1.5,1,0.608403921127,NA,"A","clock",0,1,0
+"44",44,18,1,1,3,"Wed Apr  3 09:10:23 2019",7,"old","images/prime/task/B/bird","bird",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,43,1,1.5,1,0.0948131084442,NA,"B","bird",0,1,0
+"45",45,18,1,1,3,"Wed Apr  3 09:10:23 2019",5,"old","images/prime/task/B/glasses","glasses",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,44,1,1.5,1,1.3714017868,NA,"B","glasses",0,1,0
+"46",46,18,1,0,3,"Wed Apr  3 09:10:23 2019",7,"old","images/prime/task/A/shoe","shoe",4,0,1,10,1,0.5,3,3,5,2,10,"B",1,1,6,"data",71,71,45,1,1.5,1,0.530449151993,NA,"A","shoe",0,1,0

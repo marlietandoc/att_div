@@ -1,0 +1,93 @@
+"","age","animation_time_between_frames","appeared_in_n_back_task","condition","date","difficulty","difficulty_category","image_folder_path","image_name","n_back_block_total","n_back_blocks_reversed","n_back_display_time","n_back_focal_image_height","n_back_image_overlap","n_back_interstimulus_interval","n_back_max_difficulty","n_back_max_errors_to_raise_difficulty","n_back_min_errors_to_lower_difficulty","n_back_practice_max_difficulty","n_back_prime_image_height","n_back_prime_list_name","n_back_start_difficulty","n_back_task","n_back_task_critical_age","output_location","participant","participant_num","position","practice_run","prime_image_display_time","prime_task","reaction_time","response_time","set","user_response","younger_than_or_at_critical_age","response_correct","response_uncertain"
+"1",9,1,1,1,"Sat Mar 16 13:03:57 2019",4,"old","images/prime/task/A/snowman","snowman",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,0,1,1.5,1,1.444859028,NA,"A","snowman",0,1,0
+"2",9,1,0,1,"Sat Mar 16 13:03:57 2019",6,"old","images/prime/task/B/pumpkin","pumpkin",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,1,1,1.5,1,0.204315901,NA,"B","pumpkin",0,1,0
+"3",9,1,0,1,"Sat Mar 16 13:03:57 2019",7,"old","images/prime/task/B/glasses","glasses",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,2,1,1.5,1,1.44216013,NA,"B","glasses",0,1,0
+"4",9,1,1,1,"Sat Mar 16 13:03:57 2019",7,"old","images/prime/task/A/banana","banana",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,3,1,1.5,1,0.925727844,NA,"A","banana",0,1,0
+"5",9,1,1,1,"Sat Mar 16 13:03:57 2019",3,"old","images/prime/task/A/table","table",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,4,1,1.5,1,1.223078966,NA,"A","table",0,1,0
+"6",9,1,0,1,"Sat Mar 16 13:03:57 2019",8,"old","images/prime/task/B/carrot","carrot",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,5,1,1.5,1,0.690550089,NA,"B","carrot",0,1,0
+"7",9,1,0,1,"Sat Mar 16 13:03:57 2019",6,"old","images/prime/task/B/chair","chair",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,6,1,1.5,1,1.33825779,NA,"B","chair",0,1,0
+"8",9,1,1,1,"Sat Mar 16 13:03:57 2019",7,"old","images/prime/task/A/penguin","penguin",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,7,1,1.5,1,0.203390121,NA,"A","penguin",0,1,0
+"9",9,1,0,1,"Sat Mar 16 13:03:57 2019",5,"old","images/prime/task/B/guitar","guitar",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,8,1,1.5,1,1.271617174,NA,"B","guitar",0,1,0
+"10",9,1,1,1,"Sat Mar 16 13:03:57 2019",6,"old","images/prime/task/A/clock","clock",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,9,1,1.5,1,0.080702066,NA,"A","clock",0,1,0
+"11",9,1,0,1,"Sat Mar 16 13:03:57 2019",6,"old","images/prime/task/B/umbrella","umbrella",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,10,1,1.5,1,0.714289188,NA,"B","umbrella",0,1,0
+"12",9,1,1,1,"Sat Mar 16 13:03:57 2019",4,"old","images/prime/task/A/bed","bed",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,11,1,1.5,1,1.162183046,NA,"A","bed",0,1,0
+"13",9,1,0,1,"Sat Mar 16 13:03:57 2019",7,"old","images/prime/task/B/sandwich","sandwich",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,12,1,1.5,1,0.637151957,NA,"B","sandwich",0,1,0
+"14",9,1,1,1,"Sat Mar 16 13:03:57 2019",5,"old","images/prime/task/A/horse","horse",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,13,1,1.5,1,0.215144873,NA,"A","horse",0,1,0
+"15",9,1,1,1,"Sat Mar 16 13:03:57 2019",7,"old","images/prime/task/A/scissors","scissors",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,14,1,1.5,1,0.140212774,NA,"A","scissors",0,1,0
+"16",9,1,0,1,"Sat Mar 16 13:03:57 2019",4,"old","images/prime/task/B/flower","flower",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,15,1,1.5,1,0.738304853,NA,"B","bird",0,0,0
+"17",9,1,0,1,"Sat Mar 16 13:03:57 2019",7,"old","images/prime/task/B/mountain","mountain",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,16,1,1.5,1,0.237565994,NA,"B","mountain",0,1,0
+"18",9,1,0,1,"Sat Mar 16 13:03:57 2019",8,"old","images/prime/task/B/ear","ear",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,17,1,1.5,1,0.948880911,NA,"B","ear",0,1,0
+"19",9,1,1,1,"Sat Mar 16 13:03:57 2019",8,"old","images/prime/task/A/monkey","monkey",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,18,1,1.5,1,0.481130838,NA,"A","monkey",0,1,0
+"20",9,1,0,1,"Sat Mar 16 13:03:57 2019",6,"old","images/prime/task/B/bowl","bowl",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,19,1,1.5,1,0.905853987,NA,"B","bowl",0,1,0
+"21",9,1,0,1,"Sat Mar 16 13:03:57 2019",8,"old","images/prime/task/B/candle","candle",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,20,1,1.5,1,1.192751884,NA,"B","candle",0,1,0
+"22",9,1,1,1,"Sat Mar 16 13:03:57 2019",6,"old","images/prime/task/A/fish","fish",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,21,1,1.5,1,1.346421003,NA,"A","fish",0,1,0
+"23",9,1,1,1,"Sat Mar 16 13:03:57 2019",6,"old","images/prime/task/A/shoe","shoe",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,22,1,1.5,1,1.089924097,NA,"A","shoe",0,1,0
+"24",9,1,1,1,"Sat Mar 16 13:03:57 2019",6,"old","images/prime/task/A/cat","cat",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,23,1,1.5,1,1.457468033,NA,"A","cat",0,1,0
+"25",9,1,0,1,"Sat Mar 16 13:03:57 2019",7,"old","images/prime/task/B/key","key",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,24,1,1.5,1,0.991677046,NA,"B","key",0,1,0
+"26",9,1,1,1,"Sat Mar 16 13:03:57 2019",7,"old","images/prime/task/A/piano","piano",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,25,1,1.5,1,0.097556114,NA,"A","house",0,0,0
+"27",9,1,1,1,"Sat Mar 16 13:03:57 2019",6,"old","images/prime/task/A/kite","kite",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,26,1,1.5,1,0.590163231,NA,"A","kite",0,1,0
+"28",9,1,1,1,"Sat Mar 16 13:03:57 2019",5,"old","images/prime/task/A/tree","tree",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,27,1,1.5,1,0.892662048,NA,"A","tree",0,1,0
+"29",9,1,1,1,"Sat Mar 16 13:03:57 2019",5,"old","images/prime/task/A/truck","truck",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,28,1,1.5,1,0.327853203,NA,"A","truck",0,1,0
+"30",9,1,1,1,"Sat Mar 16 13:03:57 2019",6,"old","images/prime/task/A/pear","pear",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,29,1,1.5,1,0.947624922,NA,"A"," pear",0,1,0
+"31",9,1,0,1,"Sat Mar 16 13:03:57 2019",5,"old","images/prime/task/B/apple","apple",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,30,1,1.5,1,1.359387875,NA,"B","apple",0,1,0
+"32",9,1,0,1,"Sat Mar 16 13:03:57 2019",5,"old","images/prime/task/B/ball","ball",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,31,1,1.5,1,1.39448595,NA,"B","ball",0,1,0
+"33",9,1,1,1,"Sat Mar 16 13:03:57 2019",8,"old","images/prime/task/A/grapes","grapes",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,32,1,1.5,1,0.919131041,NA,"A","grapes",0,1,0
+"34",9,1,0,1,"Sat Mar 16 13:03:57 2019",6,"old","images/prime/task/B/camel","camel",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,33,1,1.5,1,0.072924852,NA,"B","camel",0,1,0
+"35",9,1,0,1,"Sat Mar 16 13:03:57 2019",6,"old","images/prime/task/B/elephant","elephant",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,34,1,1.5,1,1.290731907,NA,"B","elephant",0,1,0
+"36",9,1,1,1,"Sat Mar 16 13:03:57 2019",6,"old","images/prime/task/A/ladder","ladder",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,35,1,1.5,1,0.724559069,NA,"A","window",0,0,0
+"37",9,1,1,1,"Sat Mar 16 13:03:57 2019",6,"old","images/prime/task/A/hanger","hanger",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,36,1,1.5,1,1.173894882,NA,"A","hanger",0,1,0
+"38",9,1,0,1,"Sat Mar 16 13:03:57 2019",7,"old","images/prime/task/B/comb","comb",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,37,1,1.5,1,0.820698977,NA,"B","comb",0,1,0
+"39",9,1,1,1,"Sat Mar 16 13:03:57 2019",8,"old","images/prime/task/A/whistle","whistle",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,38,1,1.5,1,0.35760498,NA,"A","whistle",0,1,0
+"40",9,1,0,1,"Sat Mar 16 13:03:57 2019",7,"old","images/prime/task/B/kangaroo","kangaroo",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,39,1,1.5,1,1.299396992,NA,"B","kangaroo",0,1,0
+"41",9,1,0,1,"Sat Mar 16 13:03:57 2019",1,"old","images/prime/task/B/car","car",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,40,1,1.5,1,0.126109838,NA,"B","",0,0,0
+"42",9,1,0,1,"Sat Mar 16 13:03:57 2019",6,"old","images/prime/task/B/bird","bird",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,41,1,1.5,1,1.316730976,NA,"B","bird",0,1,0
+"43",9,1,0,1,"Sat Mar 16 13:03:57 2019",6,"old","images/prime/task/B/sock","sock",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,42,1,1.5,1,1.174875021,NA,"B","socks",0,1,0
+"44",9,1,0,1,"Sat Mar 16 13:03:57 2019",6,"old","images/prime/task/B/hand","hand",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,43,1,1.5,1,1.357629061,NA,"B","hand",0,1,0
+"45",9,1,1,1,"Sat Mar 16 13:03:57 2019",7,"old","images/prime/task/A/watch","watch",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,44,1,1.5,1,1.173779964,NA,"A","watch",0,1,0
+"46",9,1,1,1,"Sat Mar 16 13:03:57 2019",6,"old","images/prime/task/A/foot","foot",4,0,1,10,1,0.5,3,3,5,2,10,"A",1,1,6,"data","C1021",1021,45,1,1.5,1,1.289494991,NA,"A","leg",0,1,0
+"47",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"48",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"49",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"50",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"51",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"52",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"53",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"54",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"55",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"56",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"57",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"58",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"59",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"60",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"61",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"62",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"63",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"64",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"65",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"66",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"67",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"68",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"69",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"70",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"71",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"72",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"73",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"74",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"75",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"76",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"77",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"78",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"79",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"80",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"81",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"82",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"83",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"84",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"85",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"86",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"87",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"88",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"89",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"90",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"91",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
+"92",NA,NA,NA,NA,"",NA,"","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"",NA,NA,NA,"","",NA,NA,NA,NA,NA,NA,NA,"","",NA,0,0
