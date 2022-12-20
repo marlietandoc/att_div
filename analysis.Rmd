@@ -398,7 +398,7 @@ We see no relationship between learning and how well participants did on the wor
 
   C1 <- ggplot(filter(master_sum), aes(x=nback_dprime, y=primability_score, color = age_group.x, fill = age_group.x))+
     geom_point(size=4,alpha = 0.6,stroke = 0) +
-    geom_smooth(method="lm",se=TRUE, size=2, formula = 'y ~ x') +theme_classic() +
+    geom_smooth(method="lm",se=TRUE, size=2, formula = 'y ~ x', alpha = 0.3 ) +theme_classic() +
     ylab(label = "")+ 
     xlab(label = "dPrime") +
     theme(text = element_text(size = 25), legend.position = 'none') +
@@ -408,7 +408,7 @@ We see no relationship between learning and how well participants did on the wor
   
   C2 <- ggplot(filter(master_sum), aes(x=mean_nback_level, y=primability_score, color = age_group.x, fill = age_group.x))+
     geom_point(size=4,alpha = 0.6,stroke = 0) +
-    geom_smooth(method="lm",se=TRUE, size=2,formula = 'y ~ x') +
+    geom_smooth(method="lm",se=TRUE, size=2,formula = 'y ~ x', alpha = 0.3) +
     theme_classic() +
     ylab(label = "Learning Sensitivity")+ 
     xlab(label = "Mean Level") +
