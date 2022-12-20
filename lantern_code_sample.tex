@@ -1,0 +1,590 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Dividing attention hurts learning in adults but not children},
+  pdfauthor={Marlie Tandoc},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{Dividing attention hurts learning in adults but not children}
+\author{Marlie Tandoc}
+\date{11/26/2022}
+
+\begin{document}
+\maketitle
+
+\hypertarget{data-cleaning-and-restructuring}{%
+\subsection{Data cleaning and
+restructuring}\label{data-cleaning-and-restructuring}}
+
+Applies exlusion criteria reported in the manuscript
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Define and set home project directory }
+\NormalTok{home\_dir }\OtherTok{\textless{}{-}} \StringTok{"\textasciitilde{}/Documents/GitHub/lantern\_code\_sample"}
+\FunctionTok{setwd}\NormalTok{(home\_dir)}
+
+\DocumentationTok{\#\#\#\# READ IN ALL DATA \#\#\#\#}
+
+\CommentTok{\#Read in E1 data }
+\FunctionTok{setwd}\NormalTok{(}\StringTok{"e1"}\NormalTok{)  }\CommentTok{\#Read in Lantern 1 data (with nback)}
+\NormalTok{prime\_files }\OtherTok{\textless{}{-}} \FunctionTok{list.files}\NormalTok{(}\AttributeTok{recursive=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{pattern =} \StringTok{"*prime"}\NormalTok{) }\CommentTok{\#Creates list of all prime files}
+\NormalTok{prime\_data }\OtherTok{\textless{}{-}}\FunctionTok{do.call}\NormalTok{(rbind.fill,}\FunctionTok{lapply}\NormalTok{(prime\_files,read.csv)) }\CommentTok{\#Makes big dataframe of all prime data}
+
+\NormalTok{nback\_files }\OtherTok{\textless{}{-}} \FunctionTok{list.files}\NormalTok{(}\AttributeTok{recursive=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{pattern =} \StringTok{"*n{-}back"}\NormalTok{) }\CommentTok{\#Creates list of all nback files}
+\NormalTok{nback\_data }\OtherTok{\textless{}{-}}\FunctionTok{do.call}\NormalTok{(rbind.fill,}\FunctionTok{lapply}\NormalTok{(nback\_files,read.csv)) }\CommentTok{\# Makes big dataframe of all nback data}
+
+\CommentTok{\#Read in E2 data}
+\FunctionTok{setwd}\NormalTok{(}\FunctionTok{paste}\NormalTok{(home\_dir,}\StringTok{"e2"}\NormalTok{, }\AttributeTok{sep =} \StringTok{\textquotesingle{}/\textquotesingle{}}\NormalTok{))}
+\NormalTok{nback\_files }\OtherTok{\textless{}{-}} \FunctionTok{list.files}\NormalTok{(}\AttributeTok{recursive=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{pattern =} \StringTok{"*n{-}back"}\NormalTok{) }\CommentTok{\#Creates list of all nback files}
+\NormalTok{nback\_data\_e2 }\OtherTok{\textless{}{-}}\FunctionTok{do.call}\NormalTok{(rbind.fill,}\FunctionTok{lapply}\NormalTok{(nback\_files,read.csv)) }\CommentTok{\# Makes big data\_e2frame of all nback data\_e2}
+
+\CommentTok{\#Reset home directory and read in extra data from E2 (concatenated priming data)}
+\FunctionTok{setwd}\NormalTok{(home\_dir) }
+\NormalTok{prime\_data\_e2 }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{\textquotesingle{}e2\_priming\_data\_concat.csv\textquotesingle{}}\NormalTok{) }\CommentTok{\#Priming data (all in one file for this experiment)}
+
+\DocumentationTok{\#\#\#\# APPLY DATA EXCLUSION AND CLEANING \#\#\#\#}
+
+\CommentTok{\#E1 exclusions: These are participants whose ID was flagged in the log by research assistants as not fitting inclusion criteria (cognitive disabilities, etc.)}
+
+\NormalTok{nback\_data }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(nback\_data, participant }\SpecialCharTok{!=} \StringTok{\textquotesingle{}A077\textquotesingle{}}\NormalTok{)}
+\NormalTok{prime\_data }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(prime\_data, participant }\SpecialCharTok{!=} \StringTok{\textquotesingle{}A077\textquotesingle{}}\NormalTok{ )}
+
+\CommentTok{\#E2 exclusion list}
+\NormalTok{exclude\_from\_log }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1002}\NormalTok{,}\DecValTok{1018}\NormalTok{,}\DecValTok{1030}\NormalTok{,}\DecValTok{1031}\NormalTok{,}\DecValTok{1070}\NormalTok{,}\DecValTok{2033}\NormalTok{,}\DecValTok{2021}\NormalTok{)}
+\NormalTok{exclude\_because\_quit\_early }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1011}\NormalTok{) }\CommentTok{\#This participant was flagged for quitting early, so exclude}
+\NormalTok{exclude\_extra\_participant }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1074}\NormalTok{)}
+\NormalTok{exclude }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(exclude\_from\_log,exclude\_because\_quit\_early, exclude\_extra\_participant) }\CommentTok{\#Master exclusion list}
+
+\NormalTok{prime\_data\_e2 }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(prime\_data\_e2, }\SpecialCharTok{!}\NormalTok{(participant }\SpecialCharTok{\%in\%}\NormalTok{ exclude))}
+\NormalTok{nback\_data\_e2 }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(nback\_data\_e2, }\SpecialCharTok{!}\NormalTok{(participant }\SpecialCharTok{\%in\%}\NormalTok{ exclude))}
+
+\CommentTok{\#Due to naming errors during collection, some participants have duplicate IDs}
+\CommentTok{\# To deal this, we make a unique ID for by attaching age to their participant ID}
+\NormalTok{prime\_data\_e2 }\OtherTok{\textless{}{-}} \FunctionTok{mutate}\NormalTok{(prime\_data\_e2, }\AttributeTok{participant\_str =} \FunctionTok{paste}\NormalTok{(participant,age))}
+\NormalTok{prime\_data\_e2}\SpecialCharTok{$}\NormalTok{participant }\OtherTok{\textless{}{-}}\NormalTok{ prime\_data\_e2}\SpecialCharTok{$}\NormalTok{participant\_str}
+\NormalTok{nback\_data\_e2 }\OtherTok{\textless{}{-}} \FunctionTok{mutate}\NormalTok{(nback\_data\_e2, }\AttributeTok{participant\_str =} \FunctionTok{paste}\NormalTok{(participant,age))}
+\NormalTok{nback\_data\_e2}\SpecialCharTok{$}\NormalTok{participant }\OtherTok{\textless{}{-}}\NormalTok{ nback\_data\_e2}\SpecialCharTok{$}\NormalTok{participant\_str}
+
+\CommentTok{\#Select only relevant variables}
+\NormalTok{nback\_data }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(nback\_data,participant,n\_back\_type,block\_number,age,expected\_response,user\_correct, user\_response,reaction\_time,prime\_image\_id,lure) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{experiment =} \StringTok{\textquotesingle{}Experiment 1\textquotesingle{}}\NormalTok{)}
+
+\NormalTok{prime\_data }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(prime\_data, age, appeared\_in\_n\_back\_task, difficulty, response\_correct, reaction\_time, participant, condition, position,image\_name) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{experiment =} \StringTok{\textquotesingle{}Experiment 1\textquotesingle{}}\NormalTok{)}
+
+\NormalTok{nback\_data\_e2 }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(nback\_data\_e2,participant,n\_back\_type,block\_number,age,expected\_response,user\_correct, user\_response,reaction\_time,prime\_image\_id) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{experiment =} \StringTok{\textquotesingle{}Experiment 2\textquotesingle{}}\NormalTok{)}
+\NormalTok{prime\_data\_e2 }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(prime\_data\_e2, age, appeared\_in\_n\_back\_task, difficulty, response\_correct, reaction\_time, participant, condition, position,image\_name) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{experiment =} \StringTok{\textquotesingle{}Experiment 2\textquotesingle{}}\NormalTok{)}
+
+\CommentTok{\#Combine prime data from E1 and E2 data together}
+\CommentTok{\#Note: we do not do this for nback data because the task differs across experiments}
+\NormalTok{prime\_data }\OtherTok{\textless{}{-}} \FunctionTok{rbind}\NormalTok{(prime\_data,prime\_data\_e2)}
+
+\CommentTok{\#Logs indicate participant ID 1069 was entered improperly}
+\CommentTok{\#Manually append C to one participant to make their ID match between nback and priming task}
+\NormalTok{prime\_data }\OtherTok{\textless{}{-}}\NormalTok{ prime\_data }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{participant =} \FunctionTok{ifelse}\NormalTok{(participant }\SpecialCharTok{==} \StringTok{\textquotesingle{}1069\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}C1069\textquotesingle{}}\NormalTok{, participant))}
+
+\CommentTok{\#removes empty rows from prime\_data that were generated by Psychopy}
+\NormalTok{prime\_data }\OtherTok{\textless{}{-}}\NormalTok{ prime\_data[}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(prime\_data}\SpecialCharTok{$}\NormalTok{position),]}
+
+\CommentTok{\#Function that assigns each participant based on their age to an age group}
+\CommentTok{\#Creates two new columns:}
+\CommentTok{\#Age group: Child or adult}
+\CommentTok{\#Age new: Includes actual age for child, but age group for adult}
+\NormalTok{assign\_age\_group }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(data) \{}
+  
+  \ControlFlowTok{for}\NormalTok{ (subject }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(data)) \{}
+    \ControlFlowTok{if}\NormalTok{ (data}\SpecialCharTok{$}\NormalTok{age[subject] }\SpecialCharTok{\textgreater{}} \DecValTok{12}\NormalTok{) \{ }\CommentTok{\#If Older than 12}
+\NormalTok{      data}\SpecialCharTok{$}\NormalTok{age\_group[subject] }\OtherTok{\textless{}{-}} \StringTok{\textquotesingle{}adult\textquotesingle{}}
+\NormalTok{      data}\SpecialCharTok{$}\NormalTok{age\_new[subject] }\OtherTok{\textless{}{-}} \StringTok{\textquotesingle{}Adult\textquotesingle{}}
+\NormalTok{    \} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{      data}\SpecialCharTok{$}\NormalTok{age\_group[subject] }\OtherTok{\textless{}{-}} \StringTok{\textquotesingle{}child\textquotesingle{}}
+\NormalTok{      data}\SpecialCharTok{$}\NormalTok{age\_new[subject] }\OtherTok{\textless{}{-}}\NormalTok{ data}\SpecialCharTok{$}\NormalTok{age[subject]}
+\NormalTok{    \}}
+    
+\NormalTok{  \}}
+\NormalTok{  data}
+  
+\NormalTok{\}}
+
+\CommentTok{\#Adds child or adult group to data}
+\NormalTok{nback\_data }\OtherTok{\textless{}{-}} \FunctionTok{assign\_age\_group}\NormalTok{(nback\_data)}
+\NormalTok{prime\_data }\OtherTok{\textless{}{-}} \FunctionTok{assign\_age\_group}\NormalTok{(prime\_data)}
+
+\CommentTok{\#Adds a new column to prime data (two\_block = whether trial in prime data was in first block or second block)}
+\ControlFlowTok{for}\NormalTok{ (trial }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(prime\_data)) \{}
+  \ControlFlowTok{if}\NormalTok{ (prime\_data}\SpecialCharTok{$}\NormalTok{position[trial] }\SpecialCharTok{\textless{}} \DecValTok{23}\NormalTok{) \{}
+\NormalTok{    prime\_data}\SpecialCharTok{$}\NormalTok{two\_block[trial] }\OtherTok{\textless{}{-}} \DecValTok{1}
+\NormalTok{  \} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{    prime\_data}\SpecialCharTok{$}\NormalTok{two\_block[trial] }\OtherTok{\textless{}{-}} \DecValTok{2}
+\NormalTok{  \}}
+  
+\NormalTok{\}}
+
+\CommentTok{\#Adds a new column to nback data (signal\_det = signal detection theory assignment on each trial)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(nback\_data)) \{}
+  \ControlFlowTok{if}\NormalTok{(nback\_data}\SpecialCharTok{$}\NormalTok{expected\_response[i] }\SpecialCharTok{==} \DecValTok{1}\NormalTok{) \{}
+    \ControlFlowTok{if}\NormalTok{(nback\_data}\SpecialCharTok{$}\NormalTok{user\_correct[i] }\SpecialCharTok{==} \DecValTok{1}\NormalTok{) \{ }\CommentTok{\#If participant was correct}
+\NormalTok{      nback\_data}\SpecialCharTok{$}\NormalTok{signal\_det[i] }\OtherTok{\textless{}{-}}\StringTok{\textquotesingle{}hit\textquotesingle{}}
+\NormalTok{    \} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{      nback\_data}\SpecialCharTok{$}\NormalTok{signal\_det[i] }\OtherTok{\textless{}{-}}\StringTok{\textquotesingle{}miss\textquotesingle{}}
+\NormalTok{    \}}
+\NormalTok{  \} }\ControlFlowTok{else}\NormalTok{ \{}
+    \ControlFlowTok{if}\NormalTok{(nback\_data}\SpecialCharTok{$}\NormalTok{user\_correct[i] }\SpecialCharTok{==} \DecValTok{1}\NormalTok{) \{ }\CommentTok{\#If participant was incorrect}
+\NormalTok{      nback\_data}\SpecialCharTok{$}\NormalTok{signal\_det[i] }\OtherTok{\textless{}{-}}\StringTok{\textquotesingle{}CR\textquotesingle{}} \CommentTok{\#correct rejection}
+\NormalTok{    \} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{      nback\_data}\SpecialCharTok{$}\NormalTok{signal\_det[i] }\OtherTok{\textless{}{-}}\StringTok{\textquotesingle{}FA\textquotesingle{}} \CommentTok{\#false alarm}
+\NormalTok{    \}}
+\NormalTok{  \}}
+\NormalTok{\}}
+
+\CommentTok{\#Experiment 1 performance{-}based exclusions }
+\NormalTok{e1\_only\_nback }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(nback\_data, experiment }\SpecialCharTok{==} \StringTok{\textquotesingle{}Experiment 1\textquotesingle{}}\NormalTok{)}
+\CommentTok{\#Quickly summarizes n{-}back data to determine who to exclude}
+\NormalTok{nback\_quick\_summary }\OtherTok{\textless{}{-}}\NormalTok{ e1\_only\_nback }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(participant) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{acc\_ =} \FunctionTok{length}\NormalTok{(}\FunctionTok{which}\NormalTok{(user\_correct }\SpecialCharTok{==} \DecValTok{1}\NormalTok{))}\SpecialCharTok{/}\FunctionTok{length}\NormalTok{(participant), }\AttributeTok{hit\_key =} \FunctionTok{sum}\NormalTok{(user\_response), }\AttributeTok{acc\_targets =} \FunctionTok{length}\NormalTok{(}\FunctionTok{which}\NormalTok{(user\_correct }\SpecialCharTok{==} \DecValTok{1} \SpecialCharTok{\&}\NormalTok{ expected\_response }\SpecialCharTok{==} \DecValTok{1}\NormalTok{))}\SpecialCharTok{/}\FunctionTok{length}\NormalTok{(}\FunctionTok{which}\NormalTok{(expected\_response }\SpecialCharTok{==} \DecValTok{1}\NormalTok{)), }\AttributeTok{mean\_nback =} \FunctionTok{mean}\NormalTok{(n\_back\_type), }\AttributeTok{age =}\NormalTok{ age[}\DecValTok{1}\NormalTok{])}
+
+\CommentTok{\#Exclude participants 65\% or lower on n{-}back overall and who dont hit key (0 or 1 times) }
+\NormalTok{exclusion\_nback }\OtherTok{\textless{}{-}}\NormalTok{ nback\_quick\_summary}\SpecialCharTok{$}\NormalTok{participant[}\FunctionTok{which}\NormalTok{(nback\_quick\_summary}\SpecialCharTok{$}\NormalTok{acc\_ }\SpecialCharTok{\textless{}} \FloatTok{0.65} \SpecialCharTok{|}\NormalTok{ nback\_quick\_summary}\SpecialCharTok{$}\NormalTok{hit\_key }\SpecialCharTok{\textless{}} \DecValTok{2} \SpecialCharTok{|}\NormalTok{ nback\_quick\_summary}\SpecialCharTok{$}\NormalTok{hit\_key }\SpecialCharTok{\textgreater{}} \DecValTok{30}\NormalTok{)] }
+
+\CommentTok{\# filters out the participants from both dataframes who score lower than 65\% on n{-}back}
+\NormalTok{nback\_data }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(nback\_data, }\SpecialCharTok{!}\NormalTok{(participant }\SpecialCharTok{\%in\%}\NormalTok{ exclusion\_nback))}
+\NormalTok{prime\_data }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(prime\_data, }\SpecialCharTok{!}\NormalTok{(participant }\SpecialCharTok{\%in\%}\NormalTok{ exclusion\_nback))}
+
+\CommentTok{\#report number of incorrect trials per age group}
+\NormalTok{incorr\_trials\_count }\OtherTok{\textless{}{-}}\NormalTok{ prime\_data }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(age\_group,experiment) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{incorr\_count =} \FunctionTok{length}\NormalTok{(participant[}\FunctionTok{which}\NormalTok{(response\_correct }\SpecialCharTok{==} \DecValTok{0}\NormalTok{)]))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` has grouped output by 'age_group'. You can override using the
+## `.groups` argument.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Create new column (diff\_1\_rt) that has reaction time for only level 1 difficulty}
+\NormalTok{prime\_data[}\StringTok{\textquotesingle{}diff\_1\_rt\textquotesingle{}}\NormalTok{] }\OtherTok{\textless{}{-}} \DecValTok{999}\CommentTok{\#Mark with 999 to allow for filtering later without NAs}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(prime\_data)) \{}
+  \ControlFlowTok{if}\NormalTok{ (prime\_data}\SpecialCharTok{$}\NormalTok{difficulty[i] }\SpecialCharTok{==} \DecValTok{1}\NormalTok{) \{}
+\NormalTok{    prime\_data}\SpecialCharTok{$}\NormalTok{diff\_1\_rt[i] }\OtherTok{\textless{}{-}}\NormalTok{ prime\_data}\SpecialCharTok{$}\NormalTok{reaction\_time[i]}
+    
+\NormalTok{  \}}
+\NormalTok{\}}
+
+\CommentTok{\#Number of trials that were too fast}
+\NormalTok{too\_fast\_trials\_count }\OtherTok{\textless{}{-}}\NormalTok{ prime\_data }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(age\_group,experiment) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{count =} \FunctionTok{length}\NormalTok{(participant[}\FunctionTok{which}\NormalTok{(diff\_1\_rt }\SpecialCharTok{\textless{}} \FloatTok{0.3}\NormalTok{)]))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` has grouped output by 'age_group'. You can override using the
+## `.groups` argument.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Exclude prime data trials faster than 300ms (0.3s) }
+\NormalTok{prime\_data}\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(prime\_data, diff\_1\_rt }\SpecialCharTok{\textgreater{}} \FloatTok{0.3}\NormalTok{ )}
+
+\CommentTok{\#New dataframe of correct trials only. From this point on we only use this dataframe for analysis (as per pre{-}registration)}
+\NormalTok{correct\_prime\_trials }\OtherTok{=} \FunctionTok{filter}\NormalTok{(prime\_data, response\_correct }\SpecialCharTok{==} \DecValTok{1}\NormalTok{)}
+
+\DocumentationTok{\#\#\#\# CREATE SUMMARIZED DATAFRAMES \#\#\#\#}
+
+\CommentTok{\# Quick function that rounds decimal points for plotting}
+\NormalTok{scaleFUN }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x) }\FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%.1f"}\NormalTok{, x)}
+
+\CommentTok{\#PRIMING PERFORMANCE FOR EACH PARTICIPANT}
+\NormalTok{prime\_sum\_participant }\OtherTok{=}\NormalTok{ correct\_prime\_trials }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(participant,experiment) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_old =} \FunctionTok{mean}\NormalTok{(difficulty[}\FunctionTok{which}\NormalTok{(appeared\_in\_n\_back\_task }\SpecialCharTok{==} \DecValTok{1}\NormalTok{)]), }\CommentTok{\#Average level for old images}
+            \AttributeTok{mean\_new =} \FunctionTok{mean}\NormalTok{(difficulty[}\FunctionTok{which}\NormalTok{(appeared\_in\_n\_back\_task }\SpecialCharTok{==} \DecValTok{0}\NormalTok{)]), }\CommentTok{\#Average level for new images}
+            \AttributeTok{age =}\NormalTok{ age[}\DecValTok{1}\NormalTok{],}
+            \AttributeTok{age\_group =}\NormalTok{ age\_group[}\DecValTok{1}\NormalTok{],}
+            \AttributeTok{age\_new =}\NormalTok{ age\_new[}\DecValTok{1}\NormalTok{]) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{primability\_score =} \CommentTok{\#Primability score }
+\NormalTok{           mean\_new }\SpecialCharTok{{-}}\NormalTok{ mean\_old) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` has grouped output by 'participant'. You can override using the
+## `.groups` argument.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#PRIMING PERFORMANCE FOR EACH PARTICIPANT IN EACH BLOCK}
+\NormalTok{prime\_sum\_participant\_block }\OtherTok{=}\NormalTok{ correct\_prime\_trials }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(participant, two\_block,experiment) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_old =} \FunctionTok{mean}\NormalTok{(difficulty[}\FunctionTok{which}\NormalTok{(appeared\_in\_n\_back\_task }\SpecialCharTok{==} \DecValTok{1}\NormalTok{)]), }\CommentTok{\#Average level for old images}
+            \AttributeTok{mean\_new =} \FunctionTok{mean}\NormalTok{(difficulty[}\FunctionTok{which}\NormalTok{(appeared\_in\_n\_back\_task }\SpecialCharTok{==} \DecValTok{0}\NormalTok{)]), }\CommentTok{\#Average level for new images}
+            \AttributeTok{age =}\NormalTok{ age[}\DecValTok{1}\NormalTok{],}
+            \AttributeTok{age\_group =}\NormalTok{ age\_group[}\DecValTok{1}\NormalTok{],}
+            \AttributeTok{age\_new =}\NormalTok{ age\_new[}\DecValTok{1}\NormalTok{]) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{primability\_score =}\NormalTok{ mean\_new }\SpecialCharTok{{-}}\NormalTok{ mean\_old) }\CommentTok{\#Priambility wscore}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` has grouped output by 'participant', 'two_block'. You can override
+## using the `.groups` argument.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#NBACK PERFORMANCE (EXPERIMENT 1)}
+\NormalTok{nback\_summary }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(nback\_data, experiment }\SpecialCharTok{==} \StringTok{\textquotesingle{}Experiment 1\textquotesingle{}}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(participant,age\_group) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_nback\_level =} \FunctionTok{mean}\NormalTok{(n\_back\_type),}
+            \AttributeTok{nback\_acc =} \FunctionTok{length}\NormalTok{(}\FunctionTok{which}\NormalTok{(user\_correct }\SpecialCharTok{==} \DecValTok{1}\NormalTok{))}\SpecialCharTok{/}\DecValTok{92}\NormalTok{,}
+            \AttributeTok{hit\_rate =}\NormalTok{ (}\FunctionTok{length}\NormalTok{(}\FunctionTok{which}\NormalTok{(signal\_det }\SpecialCharTok{==}\StringTok{\textquotesingle{}hit\textquotesingle{}}\NormalTok{))}\SpecialCharTok{+}\FloatTok{0.5}\NormalTok{)}\SpecialCharTok{/}\NormalTok{(}\FunctionTok{length}\NormalTok{(}\FunctionTok{which}\NormalTok{(expected\_response }\SpecialCharTok{==} \DecValTok{1}\NormalTok{))}\SpecialCharTok{+}\NormalTok{(}\DecValTok{1}\NormalTok{)),}
+            \AttributeTok{FA\_rate =}\NormalTok{ (}\FunctionTok{length}\NormalTok{(}\FunctionTok{which}\NormalTok{(signal\_det }\SpecialCharTok{==}\StringTok{\textquotesingle{}FA\textquotesingle{}}\NormalTok{))}\SpecialCharTok{+}\FloatTok{0.5}\NormalTok{)}\SpecialCharTok{/}\NormalTok{(}\FunctionTok{length}\NormalTok{(}\FunctionTok{which}\NormalTok{(expected\_response }\SpecialCharTok{==} \DecValTok{0}\NormalTok{))}\SpecialCharTok{+}\NormalTok{(}\DecValTok{1}\NormalTok{)),}
+            \AttributeTok{hit\_key =} \FunctionTok{sum}\NormalTok{(user\_response),}
+            \AttributeTok{nback\_level\_1 =}\NormalTok{ n\_back\_type[}\FunctionTok{which}\NormalTok{(block\_number }\SpecialCharTok{==} \DecValTok{0}\NormalTok{)][}\DecValTok{1}\NormalTok{],}
+            \AttributeTok{nback\_level\_2 =}\NormalTok{ n\_back\_type[}\FunctionTok{which}\NormalTok{(block\_number }\SpecialCharTok{==} \DecValTok{1}\NormalTok{)][}\DecValTok{1}\NormalTok{],}
+            \AttributeTok{nback\_level\_3 =}\NormalTok{ n\_back\_type[}\FunctionTok{which}\NormalTok{(block\_number }\SpecialCharTok{==} \DecValTok{2}\NormalTok{)][}\DecValTok{2}\NormalTok{],}
+            \AttributeTok{nback\_level\_4 =}\NormalTok{ n\_back\_type[}\FunctionTok{which}\NormalTok{(block\_number }\SpecialCharTok{==} \DecValTok{3}\NormalTok{)][}\DecValTok{3}\NormalTok{],}
+            \AttributeTok{total\_trials =} \FunctionTok{length}\NormalTok{(participant)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{nback\_dprime =} \FunctionTok{qnorm}\NormalTok{(hit\_rate)}\SpecialCharTok{{-}}\FunctionTok{qnorm}\NormalTok{(FA\_rate))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` has grouped output by 'participant'. You can override using the
+## `.groups` argument.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#\#\# ADDITIONAL PLOTTING PREPARATION \#\#\#\#}
+
+\CommentTok{\#Convenient dataframes separated by experiment for plotting}
+\NormalTok{plot\_e1 }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(prime\_sum\_participant, experiment }\SpecialCharTok{==} \StringTok{\textquotesingle{}Experiment 1\textquotesingle{}}\NormalTok{)}
+\NormalTok{plot\_e2}\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(prime\_sum\_participant, experiment }\SpecialCharTok{==} \StringTok{\textquotesingle{}Experiment 2\textquotesingle{}}\NormalTok{)}
+
+\NormalTok{plot\_e1\_b }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(prime\_sum\_participant\_block, experiment }\SpecialCharTok{==} \StringTok{\textquotesingle{}Experiment 1\textquotesingle{}}\NormalTok{)}
+\NormalTok{plot\_e2\_b }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(prime\_sum\_participant\_block, experiment }\SpecialCharTok{==} \StringTok{\textquotesingle{}Experiment 2\textquotesingle{}}\NormalTok{)}
+
+\CommentTok{\#Master dataframe of both nback and expdriment 1 data in same table to run correlations}
+\NormalTok{master\_sum }\OtherTok{\textless{}{-}} \FunctionTok{merge}\NormalTok{(nback\_summary, plot\_e1, }\AttributeTok{by =} \StringTok{\textquotesingle{}participant\textquotesingle{}}\NormalTok{ )}
+
+\CommentTok{\#make ordered factors for plotting (child, adult)}
+\NormalTok{correct\_prime\_trials}\SpecialCharTok{$}\NormalTok{age\_group }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(correct\_prime\_trials}\SpecialCharTok{$}\NormalTok{age\_group,}\AttributeTok{levels=}\FunctionTok{c}\NormalTok{(}\StringTok{"child"}\NormalTok{,}\StringTok{"adult"}\NormalTok{))}
+\NormalTok{nback\_summary}\SpecialCharTok{$}\NormalTok{age\_group }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(nback\_summary}\SpecialCharTok{$}\NormalTok{age\_group,}\AttributeTok{levels=}\FunctionTok{c}\NormalTok{(}\StringTok{"child"}\NormalTok{,}\StringTok{"adult"}\NormalTok{))}
+
+
+\CommentTok{\#model prep (move down to statistics)}
+\CommentTok{\#centre}
+\NormalTok{correct\_prime\_trials }\OtherTok{\textless{}{-}}\NormalTok{ correct\_prime\_trials }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{pos\_new =}\NormalTok{ position }\SpecialCharTok{+} \DecValTok{1}\NormalTok{) }\CommentTok{\#original trial 1 was 0, so add +1}
+
+\NormalTok{correct\_prime\_trials }\OtherTok{\textless{}{-}} \FunctionTok{mutate}\NormalTok{(correct\_prime\_trials,}\AttributeTok{position\_c =}\NormalTok{ pos\_new }\SpecialCharTok{{-}} \DecValTok{23}\NormalTok{, }\CommentTok{\# centre position\_c, 23 is now 0 (46 trials total)}
+                               \AttributeTok{block\_c =} \FunctionTok{ifelse}\NormalTok{(two\_block }\SpecialCharTok{==} \DecValTok{1}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+                               \AttributeTok{app\_nback\_c =} \FunctionTok{ifelse}\NormalTok{(appeared\_in\_n\_back\_task }\SpecialCharTok{==} \DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{,}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{),}
+                               \AttributeTok{age\_group\_c =} \FunctionTok{ifelse}\NormalTok{(age\_group }\SpecialCharTok{==} \StringTok{\textquotesingle{}child\textquotesingle{}}\NormalTok{,}\DecValTok{1}\NormalTok{,}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{),}
+                               \AttributeTok{experiment\_c =} \FunctionTok{ifelse}\NormalTok{(experiment }\SpecialCharTok{==} \StringTok{\textquotesingle{}Experiment 2\textquotesingle{}}\NormalTok{,}\DecValTok{1}\NormalTok{,}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{))}
+
+\CommentTok{\#restructure dataframe into long}
+\NormalTok{plot\_raw }\OtherTok{\textless{}{-}} \FunctionTok{gather}\NormalTok{(prime\_sum\_participant, trial\_type, mean\_difficulty, mean\_old}\SpecialCharTok{:}\NormalTok{mean\_new, }\AttributeTok{factor\_key=}\ConstantTok{TRUE}\NormalTok{)}
+
+\NormalTok{plot\_raw}\SpecialCharTok{$}\NormalTok{experiment }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(plot\_raw}\SpecialCharTok{$}\NormalTok{experiment,}\AttributeTok{levels=}\FunctionTok{c}\NormalTok{(}\StringTok{"Experiment 2"}\NormalTok{,}\StringTok{"Experiment 1"}\NormalTok{))}
+
+\NormalTok{plot\_raw\_b }\OtherTok{\textless{}{-}} \FunctionTok{gather}\NormalTok{(prime\_sum\_participant\_block, trial\_type, mean\_difficulty, mean\_old}\SpecialCharTok{:}\NormalTok{mean\_new, }\AttributeTok{factor\_key=}\ConstantTok{TRUE}\NormalTok{)}
+
+
+
+\CommentTok{\#Dataframes that have both nback and priming performance for mixed modelling}
+\NormalTok{e1\_only }\OtherTok{\textless{}{-}}  \FunctionTok{filter}\NormalTok{(correct\_prime\_trials, experiment }\SpecialCharTok{==} \StringTok{\textquotesingle{}Experiment 1\textquotesingle{}}\NormalTok{)}
+\NormalTok{e2\_only }\OtherTok{\textless{}{-}}  \FunctionTok{filter}\NormalTok{(correct\_prime\_trials, experiment }\SpecialCharTok{==} \StringTok{\textquotesingle{}Experiment 2\textquotesingle{}}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(e1\_only)) \{}
+  
+\NormalTok{  curr }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(master\_sum, participant }\SpecialCharTok{==}\NormalTok{ correct\_prime\_trials}\SpecialCharTok{$}\NormalTok{participant[i])}
+\NormalTok{  e1\_only}\SpecialCharTok{$}\NormalTok{nback\_mean\_level[i] }\OtherTok{\textless{}{-}}\NormalTok{ curr}\SpecialCharTok{$}\NormalTok{mean\_nback\_level[}\DecValTok{1}\NormalTok{]}
+\NormalTok{  e1\_only}\SpecialCharTok{$}\NormalTok{nback\_dprime[i] }\OtherTok{\textless{}{-}}\NormalTok{ curr}\SpecialCharTok{$}\NormalTok{nback\_dprime[}\DecValTok{1}\NormalTok{]}
+  
+\NormalTok{\}}
+
+\CommentTok{\#nback acc in model (mean center)}
+\NormalTok{e1\_only }\OtherTok{\textless{}{-}}\NormalTok{ e1\_only }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{nback\_dprime\_c =} \FunctionTok{scale}\NormalTok{(nback\_dprime))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{adults-only-learn-better-than-kids-when-attention-is-undivided}{%
+\subsection{Adults only learn better than kids when attention is
+undivided}\label{adults-only-learn-better-than-kids-when-attention-is-undivided}}
+
+Age in months kids vs adults N-back level Basic learning sensitivity
+plot undivided vs divided Learning by age in months
+
+\includegraphics{lantern_code_sample_files/figure-latex/visuals-1.pdf}
+\includegraphics{lantern_code_sample_files/figure-latex/visuals-2.pdf}
+
+\hypertarget{dividing-attention-hurts-learning-in-adults-but-not-kids}{%
+\subsection{Dividing attention hurts learning in adults, but not
+kids}\label{dividing-attention-hurts-learning-in-adults-but-not-kids}}
+
+\includegraphics{lantern_code_sample_files/figure-latex/visuals_2-1.pdf}
+
+\#Correlation
+\includegraphics{lantern_code_sample_files/figure-latex/visuals_correlation-1.pdf}
+
+\hypertarget{mixed-effects-models-predicting-identification-level}{%
+\subsection{Mixed effects models: Predicting identification
+level}\label{mixed-effects-models-predicting-identification-level}}
+
+Experiment 1
+\includegraphics{lantern_code_sample_files/figure-latex/mixed_models-1.pdf}
+
+\begin{verbatim}
+## Linear mixed model fit by REML ['lmerModLmerTest']
+## Formula: difficulty ~ app_nback_c * age_group * two_block + nback_dprime_c +  
+##     (1 | participant)
+##    Data: e1_only
+## REML criterion at convergence: 14059.69
+## Random effects:
+##  Groups      Name        Std.Dev.
+##  participant (Intercept) 0.3138  
+##  Residual                1.0104  
+## Number of obs: 4842, groups:  participant, 113
+## Fixed Effects:
+##                          (Intercept)                           app_nback_c  
+##                             6.404520                             -0.254866  
+##                       age_groupadult                             two_block  
+##                            -0.543514                              0.017747  
+##                       nback_dprime_c            app_nback_c:age_groupadult  
+##                             0.002235                              0.269806  
+##                app_nback_c:two_block              age_groupadult:two_block  
+##                             0.093415                              0.007487  
+## app_nback_c:age_groupadult:two_block  
+##                            -0.160327
+\end{verbatim}
+
+~
+
+difficulty
+
+Predictors
+
+Estimates
+
+CI
+
+p
+
+(Intercept)
+
+6.40
+
+6.24~--~6.57
+
+\textless0.001
+
+app nback c
+
+-0.25
+
+-0.39~--~-0.12
+
+\textless0.001
+
+age group {[}adult{]}
+
+-0.54
+
+-0.77~--~-0.31
+
+\textless0.001
+
+two block
+
+0.02
+
+-0.07~--~0.10
+
+0.684
+
+nback dprime c
+
+0.00
+
+-0.07~--~0.08
+
+0.953
+
+app nback c * age group{[}adult{]}
+
+0.27
+
+0.09~--~0.45
+
+0.004
+
+app nback c * two block
+
+0.09
+
+0.01~--~0.18
+
+0.034
+
+age group {[}adult{]} * twoblock
+
+0.01
+
+-0.11~--~0.12
+
+0.898
+
+(app nback c * age group{[}adult{]}) * two block
+
+-0.16
+
+-0.28~--~-0.04
+
+0.007
+
+Random Effects
+
+σ2
+
+1.02
+
+τ00 participant
+
+0.10
+
+ICC
+
+0.09
+
+N participant
+
+113
+
+Observations
+
+4842
+
+Marginal R2 / Conditional R2
+
+0.067 / 0.149
+
+\hypertarget{other-figure-visualizations-chunks}{%
+\subsection{Other figure visualizations
+chunks}\label{other-figure-visualizations-chunks}}
+
+\begin{verbatim}
+## Warning in x:y: numerical expression has 2 elements: only the first used
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in x:y: numerical expression has 3 elements: only the first used
+\end{verbatim}
+
+\begin{verbatim}
+## `summarise()` has grouped output by 'age_group', 'level'. You can override using
+## the `.groups` argument.
+\end{verbatim}
+
+\includegraphics{lantern_code_sample_files/figure-latex/other_figures-1.pdf}
+
+\end{document}

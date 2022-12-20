@@ -1,7 +1,7 @@
 ---
 title: 'Dividing attention hurts learning in adults but not children'
 author: "Marlie Tandoc"
-date: "11/26/2022"
+date: "12/20/2022"
 output: html_document
 ---
 
@@ -24,12 +24,15 @@ library(ggsignif) #for plotting significance stars
 library(ggeffects) #for plotting model estimates
 library(ggbeeswarm) #For plotting distributions
 library(sjPlot) #For model tables
+library(grid) #For plotting
+library(lsr) #For effect sizes
+library(MuMIn) #For model comparisons/calculating R2
 
 ```
 
 ## Data cleaning and restructuring
-Applies exlusion criteria reported in the manuscript
-```{r data_prep}
+Applies exclusion criteria reported in the manuscript. Refer to .Rmd file for full exclusion and data cleaning.
+```{r data_prep, include = FALSE, warning=FALSE}
 
 #Define and set home project directory 
 home_dir <- "~/Documents/GitHub/lantern_code_sample"
@@ -229,12 +232,18 @@ nback_summary <- filter(nback_data, experiment == 'Experiment 1') %>%
 
 #### ADDITIONAL PLOTTING PREPARATION ####
 
-#Convenient dataframes separated by experiment for plotting
+#Convenient dataframes separated by experiment for plotting (with reordered factors)
 plot_e1 <- filter(prime_sum_participant, experiment == 'Experiment 1')
-plot_e2<- filter(prime_sum_participant, experiment == 'Experiment 2')
+plot_e1$age_group <- factor(plot_e1$age_group,levels=c("child","adult"))
 
+plot_e2<- filter(prime_sum_participant, experiment == 'Experiment 2')
+plot_e2$age_group <- factor(plot_e2$age_group,levels=c("child","adult"))
+
+#same thing but by block 
 plot_e1_b <- filter(prime_sum_participant_block, experiment == 'Experiment 1')
 plot_e2_b <- filter(prime_sum_participant_block, experiment == 'Experiment 2')
+
+
 
 #Master dataframe of both nback and expdriment 1 data in same table to run correlations
 master_sum <- merge(nback_summary, plot_e1, by = 'participant' )
@@ -278,15 +287,21 @@ for (i in 1:nrow(e1_only)) {
 e1_only <- e1_only %>% mutate(nback_dprime_c = scale(nback_dprime))
 
 
+#dprime score in each block of the n-back phase (for)
+nback_sum_by_block_dprime <- filter(nback_data, experiment == 'Experiment 1') %>% 
+  group_by(participant,age_group,block_number) %>%
+  summarise(hit_rate = (length(which(signal_det =='hit'))+0.5)/(length(which(expected_response == 1))+1),
+FA_rate = (length(which(signal_det =='FA'))+0.5)/(length(which(expected_response == 0))+1)) %>%
+  mutate(nback_dprime = qnorm(hit_rate)-qnorm(FA_rate))
+
+
+
 ```
 
-## Adults only learn better than kids when attention is undivided
-Age in months kids vs adults 
-N-back level
-Basic learning sensitivity plot undivided vs divided
-Learning by age in months
+## Adults learn better than kids, but only if attention is undivided
+Under conditions of undivided attention (left), adults learn better than children. But when attention is divided (right), and a working memory task is performed at-the-same time, children learn just as well as adults.
 
-```{r visuals, echo=FALSE,fig.height=6, fig.width=5,warning=FALSE}
+```{r visuals, echo=FALSE,fig.height=7, fig.width=7,warning=FALSE}
 
  #Custom color scheme
   adult_hex <- '#7973c9' 
@@ -295,97 +310,165 @@ Learning by age in months
   hex_8 <-'#73B7BD'
   hex_9 <- '#5481a8'
   
-  e1a <-ggplot(filter(plot_e1), aes(x=age_group, y=primability_score, color = age_group, fill = age_group)) +
+  #Function used to plot basic priming performance (collapsing across block)
+  plot_priming <- function (data, title, legend) {
+    
+    p <- ggplot(filter(data), aes(x=age_group, y=primability_score, color = age_group, fill = age_group)) +
     geom_quasirandom(aes(color = age_group),alpha = 0.4,dodge.width = 0.7,stroke = 0,size = 3,width = 0.35) +
-    stat_summary(fun.y=mean,position=position_dodge(width=0.7),geom='point',size = 4) +
-    stat_summary(fun.data=mean_se,  geom="errorbar",lwd=1.5, fatten=1.5,width=0.09,position=position_dodge(width=0.7)) +
+    stat_summary(fun.y=mean,position=position_dodge(width=0.7),geom='point',size = 4.3) +
+    stat_summary(fun.data=mean_se,  geom="errorbar",lwd=1.5, fatten=1.5,width=0.24,position=position_dodge(width=0.7)) +
     theme_classic(base_size = 20)+
     geom_hline(yintercept=0) +
     scale_fill_manual(values=c(child_hex,adult_hex),labels = c('Child','Adult')) +
     scale_color_manual(values=c(child_hex,adult_hex),labels = c('Child','Adult')) +
     scale_x_discrete(labels = c('Child','Adult')) +
     labs(x = 'Age Group', y = 'Learning Sensitivity', fill = 'Age Group', color = 'Age Group') +
-    coord_cartesian(ylim = c(-0.8,1.4))+ scale_y_continuous(breaks= seq(-0.8,1.4,0.4),labels=scaleFUN) +
-    ggtitle('Divided attention') +
-    theme(legend.position ='none',plot.title = element_text(hjust = 0.5)) 
+    coord_cartesian(ylim = c(-0.6,1.4))+ scale_y_continuous(breaks= seq(-0.6,1.4,0.4),labels=scaleFUN) +
+    ggtitle(title) 
+    
+    if (legend == 1) {
+  
+       p <- p +   theme(legend.position ='right',plot.title = element_text(hjust = 0.5)) 
+    
+    } else {
+        p <- p +   theme(legend.position ='none',plot.title = element_text(hjust = 0.5)) 
 
-  e1a
+    }
+    
+    p
+
+  }
+  
+  e1p <- plot_priming(plot_e1, 'Divided',0) 
+  e2p <- plot_priming(plot_e2, "Undivided",0)
+  
+  #put side by side
+  grid.arrange(e2p,e1p, ncol = 2)
+
   
   
-  #AS OF DEC 01 2020 - 7 X 5.5
-  e2a <-ggplot(filter(plot_e2), aes(x=age_group, y=primability_score, color = age_group, fill = age_group)) +
+  
+  
+```
+
+## Dividing attention hurts learning in adults but not kids
+
+#Children's learning was the same regardless if objects were the focus of the task or if it something that children were told to ignore while they performed an alternate task. For children, therefore, goals appear to neither help, nor hurt learning. They just don’t matter at all.
+
+```{r visuals_2, echo=FALSE,fig.height=6, fig.width=7,warning=FALSE}
+
+#Create new grouping variable for attention divided
+   prime_sum_participant <- prime_sum_participant %>%
+    mutate(divided = ifelse(experiment == 'Experiment 1', 'Yes','No'))
+
+#Order factors  
+  prime_sum_participant$age_group <- factor(prime_sum_participant$age_group,levels=c("child","adult"))
+  
+    prime_sum_participant$divided <- factor(prime_sum_participant$divided,levels=c("Yes","No"))
+    
+#Rename children and adults for labelling
+  
+  
+  across_exp_nb <-ggplot(filter(prime_sum_participant), aes(x=divided, y=primability_score, color = age_group, fill = age_group)) +
     geom_quasirandom(aes(color = age_group),alpha = 0.4,dodge.width = 0.7,stroke = 0,size = 3,width = 0.35) +
-    stat_summary(fun.y=mean,position=position_dodge(width=0.7),geom='point',size = 4) +
-    stat_summary(fun.data=mean_se,  geom="errorbar",lwd=1.5, fatten=1.5,width=0.09,position=position_dodge(width=0.7)) +
+    stat_summary(fun.y=mean,position=position_dodge(width=0.7),geom='point',size = 4.5) +
+    stat_summary(fun.data=mean_se,  geom="errorbar",lwd=1.5, fatten=1.5,width=0.2,position=position_dodge(width=0.7))+
     theme_classic(base_size = 20)+
     geom_hline(yintercept=0) +
     scale_fill_manual(values=c(child_hex,adult_hex),labels = c('Child','Adult')) +
     scale_color_manual(values=c(child_hex,adult_hex),labels = c('Child','Adult')) +
-    scale_x_discrete(labels = c('Child','Adult')) +
-    labs(x = 'Age Group', y = 'Learning Sensitivity', fill = 'Age Group', color = 'Age Group') +
-    coord_cartesian(ylim = c(-0.8,1.4))+ scale_y_continuous(breaks= seq(-0.8,1.4,0.4),labels=scaleFUN) +
-    ggtitle('Undivided attention') +
-    theme(legend.position ='none',plot.title = element_text(hjust = 0.5)) 
-
-  e2a
-  
-   prime_sum_participant <- prime_sum_participant %>%
-    mutate(divided = ifelse(experiment == 'Experiment 1', '1Yes','2No'))
-  
-  
-  
-```
-
-## Dividing attention hurts learning in adults, but not kids
-
-```{r visuals_2, echo=FALSE,fig.height=6, fig.width=5,warning=FALSE}
-
-#Order factors  
-   prime_sum_participant <- prime_sum_participant %>%
-    mutate(divided = ifelse(experiment == 'Experiment 1', '1Yes','2No'))
-  
-  across_exp_nb <-ggplot(filter(prime_sum_participant), aes(x=divided, y=primability_score, color = age_group, fill = age_group)) +
-    geom_quasirandom(aes(color = age_group),alpha = 0.4,dodge.width = 0.7,stroke = 0,size = 3,width = 0.35) +
-    stat_summary(fun.y=mean,position=position_dodge(width=0.7),geom='point',size = 4.5) +
-    stat_summary(fun.data=mean_se,  geom="errorbar",lwd=1.5, fatten=1.5,width=0.15,position=position_dodge(width=0.7))+
-    theme_classic(base_size = 25)+
-    geom_hline(yintercept=0) +
-    scale_fill_manual(values=c(child_hex,adult_hex),labels = c('Child','Adult')) +
-    scale_color_manual(values=c(child_hex,adult_hex),labels = c('Child','Adult')) +
     #scale_x_discrete(labels = c('Child','Adult')) +
     labs(x = 'Divided attention', y = 'Learning Sensitivity', fill = 'Age Group', color = 'Age Group') +
-    coord_cartesian(ylim = c(-0.6,1.5))+ scale_y_continuous(breaks= seq(-0.8,1.4,0.4),labels=scaleFUN) +
-    ggtitle('Comparing learning across experiments') +
+    coord_cartesian(ylim = c(-0.6,1.2))+ scale_y_continuous(breaks= seq(-0.8,1.2,0.4),labels=scaleFUN) +
+   # ggtitle('Comparing learning across experiments') +
     theme(legend.position = 'none') +
-    facet_wrap(~age_group) 
+    facet_wrap(~age_group,labeller=as_labeller(c("child" = "Child", "adult" = "Adult")))
   across_exp_nb
   
   
 ```
 
 
-#Correlation
-```{r visuals_correlation, echo=FALSE,fig.height=6, fig.width=5,warning=FALSE}
 
-#Order factors  
-   prime_sum_participant <- prime_sum_participant %>%
-    mutate(divided = ifelse(experiment == 'Experiment 1', '1Yes','2No'))
-  
-  across_exp_nb <-ggplot(filter(prime_sum_participant), aes(x=divided, y=primability_score, color = age_group, fill = age_group)) +
-    geom_quasirandom(aes(color = age_group),alpha = 0.4,dodge.width = 0.7,stroke = 0,size = 3,width = 0.35) +
-    stat_summary(fun.y=mean,position=position_dodge(width=0.7),geom='point',size = 4.5) +
-    stat_summary(fun.data=mean_se,  geom="errorbar",lwd=1.5, fatten=1.5,width=0.15,position=position_dodge(width=0.7))+
-    theme_classic(base_size = 25)+
+
+##Relationship between working memory performance and learning
+
+We see no relationship between learning and how well participants did on the working memory task (N-Back).This shows that the learning differences we see between children and adults are likely not due to children doing worse on the working memory task than adults.
+```{r visuals_correlation, echo=FALSE,fig.height=4, fig.width=8,warning=FALSE}
+
+  C1 <- ggplot(filter(master_sum), aes(x=nback_dprime, y=primability_score, color = age_group.x, fill = age_group.x))+
+    geom_point(size=4,alpha = 0.6,stroke = 0) +
+    geom_smooth(method="lm",se=TRUE, size=2, formula = 'y ~ x') +theme_classic() +
+    ylab(label = "")+ 
+    xlab(label = "dPrime") +
+    theme(text = element_text(size = 25), legend.position = 'none') +
     geom_hline(yintercept=0) +
-    scale_fill_manual(values=c(child_hex,adult_hex),labels = c('Child','Adult')) +
-    scale_color_manual(values=c(child_hex,adult_hex),labels = c('Child','Adult')) +
-    #scale_x_discrete(labels = c('Child','Adult')) +
-    labs(x = 'Divided attention', y = 'Learning Sensitivity', fill = 'Age Group', color = 'Age Group') +
-    coord_cartesian(ylim = c(-0.6,1.5))+ scale_y_continuous(breaks= seq(-0.8,1.4,0.4),labels=scaleFUN) +
-    ggtitle('Comparing learning across experiments') +
-    theme(legend.position = 'none') +
-    facet_wrap(~age_group) 
-  across_exp_nb
+    scale_fill_manual(values=c(adult_hex,child_hex),labels = c('Child','Adult')) +
+    scale_color_manual(values=c(adult_hex,child_hex),labels = c('Child','Adult'))
+  
+  C2 <- ggplot(filter(master_sum), aes(x=mean_nback_level, y=primability_score, color = age_group.x, fill = age_group.x))+
+    geom_point(size=4,alpha = 0.6,stroke = 0) +
+    geom_smooth(method="lm",se=TRUE, size=2,formula = 'y ~ x') +
+    theme_classic() +
+    ylab(label = "Learning Sensitivity")+ 
+    xlab(label = "Mean Level") +
+    theme(text = element_text(size = 25),legend.position = 'none') +
+    geom_hline(yintercept=0) +
+    scale_fill_manual(values=c(adult_hex,child_hex),labels = c('Child','Adult'))+
+    scale_color_manual(values=c(adult_hex,child_hex),labels = c('Child','Adult'))
+
+#Now summarize level in each nback block as a long dataframe for plotting
+  nback_summary_by_block_lvl <- select(nback_summary,participant, age_group,nback_level_1, nback_level_2,nback_level_3,nback_level_4)
+  nback_block_long_lvl <- gather(nback_summary_by_block_lvl, block, level, nback_level_1:nback_level_2:nback_level_3:nback_level_4)
+  
+  #rename to numbers
+  for (i in 1:nrow(nback_block_long_lvl)){
+    
+    if (nback_block_long_lvl$block[i] == 'nback_level_1') {
+      nback_block_long_lvl$block[i] <- 1
+    } else if (nback_block_long_lvl$block[i] == 'nback_level_2') {
+      nback_block_long_lvl$block[i] <- 2
+    } else if (nback_block_long_lvl$block[i] == 'nback_level_3') {
+      nback_block_long_lvl$block[i] <- 3
+    } else if (nback_block_long_lvl$block[i] == 'nback_level_4') {
+      nback_block_long_lvl$block[i] <- 4
+    }
+    
+  }
+  
+  #normalize to proportion of subjects
+  nback_count_table_each_block <-  nback_block_long_lvl %>%
+    group_by(age_group, level,block) %>%
+    summarise(count_sub = length(age_group)) %>%
+    mutate(normalize_sub = ifelse(age_group == 'child', 
+                                  count_sub/53,
+                                  count_sub/60))
+  
+  nback_count_table_each_block$age_group <- factor(nback_count_table_each_block$age_group,levels=c("child","adult"))
+  
+  
+#Mean N-back level block
+  nback_mean_level_block <- ggplot(filter(nback_count_table_each_block), aes (x = as.factor(level),y= normalize_sub, fill = age_group)) +
+    geom_bar(stat="identity", position=position_dodge()) + theme_classic()+
+    labs(y = 'Proportion of subjects', x = "") + 
+    #ggtitle('N-Back Level in Each Block')+
+    scale_fill_manual(values=c(child_hex,adult_hex), name = NULL) +
+    facet_wrap(~block,nrow = 1) +
+    theme_classic(base_size = 20) +
+    theme(axis.text.x=element_text(angle=45, hjust=1),legend.position = 'top') +
+    scale_x_discrete(labels = c('1-back','2-back','3-back')) 
+  nback_mean_level_block
+  
+  
+  
+#put side by side
+  grid.arrange(C2, C1, ncol = 2)
+  
+  
+  
+  
+  
+  
   
   
 ```
@@ -425,93 +508,379 @@ e1_only <- e1_only %>% mutate(nback_dprime_c = scale(nback_dprime))
 
 
 ```
-## Mixed effects models: Predicting identification level
-Experiment 1
-```{r mixed_models, echo=FALSE, warning = FALSE}
 
-#Test model plot
-m1_lm <- lmer(difficulty~ app_nback_c * age_group *two_block + nback_dprime_c + (1|participant), data=e1_only)
+## Statistics: Including mixed effects model fitting
+```{r stats, echo=true, warning = FALSE}
 
-test <- filter(plot_raw_b, experiment == 'Experiment 1') %>%
-  mutate(app_nback_c = ifelse(trial_type == 'mean_old', 1,-1))
+## ADULTS LEARN BETTER THAN CHILDREN WHEN ATTENTION IS UNDIVIDED (E2)
 
-x <- ggpredict(m1_lm, terms = c('age_group','app_nback_c', 'two_block'))
+#one-sample t-test (Are kids/adults above chance on priming?)
+t.test(plot_e2$primability_score[which(plot_e2$age_group == 'child')], mu = 0)
+t.test(plot_e2$primability_score[which(plot_e2$age_group == 'adult')], mu = 0)
 
-test['facet'] <- test$two_block
+#t-test: kids vs adults priming
+t.test(primability_score ~ age_group, filter(plot_e2), var.equal = TRUE)
 
-ggplot(x, aes(x = x, y = predicted, color = x, fill= group)) +
-  geom_point(size = 4,position = position_dodge(.95)) +
-  geom_errorbar(aes(ymin = conf.low, ymax = conf.high),
-                width=0,
-                lwd = 1.5,
-                position = position_dodge(.95))  +
-  facet_wrap(~facet) +
-  geom_quasirandom(data =filter(test, experiment == 'Experiment 1'),  
-                   aes(x = age_group, y = mean_difficulty, color = age_group, fill = as.factor(app_nback_c)),
-                   alpha = 0.3,dodge.width = 0.95, size = 2,stroke = 0) +
-  theme_classic(base_size = 30) +
-  theme(legend.position = 'none') +
-  scale_color_manual(values=c(child_hex,adult_hex)) +
-  scale_x_discrete(labels = c('Child','Adult'))  +
-  labs(x = 'Age', y = 'Estimated identification level') 
+#ANOVA with block and age group interaction
+a2 <- aov(primability_score ~ as.factor(age_group) * as.factor(two_block), plot_e2_b)
+summary(a2)
 
-print(m1_lm)
-sjPlot:: tab_model(m1_lm)
+#post hoc tukeys tests
+TukeyHSD(a2)
+
+#Mixed effects model fitting
+#this original specified model has singularity issues
+#m2_lm <- lmer(difficulty ~ app_nback_c * age_group *block_c + (app_nback_c + block_c|participant), e2_only)
+#summary(m2_lm)
+
+#Singularity issue is still present wtih even with bobyqaoptimizer
+#m2_lm <- lmer(difficulty~ app_nback_c * age_group *block_c + (app_nback_c + block_c|participant), data=e2_only,
+           #   control=lmerControl(optimizer="bobyqa",
+                                 # optCtrl=list(maxfun=10000)))
+
+#Double || fixes singularity so we go with this model .
+#NOTE to future self:Double || as opposed to say just random intercpet means the dfs between the groups is a lot smaller
+m2_lm <- lmer(difficulty~ app_nback_c * age_group *block_c + (app_nback_c + block_c||participant), data=e2_only,
+              control=lmerControl(optimizer="bobyqa",
+                                  optCtrl=list(maxfun=100000)))
+summary(m2_lm)
+
+#Provides r-squared value of the model
+r.squaredGLMM(m2_lm)
+
+#Create a table with model estimates and betas
+tab_model(m2_lm)
+
+#Calculate model's estimated marginal means and contrasts in each block
+m2_emms <- emmeans(m2_lm, pairwise ~ app_nback_c*age_group | block_c,pbkrtest.limit = 3400)
+summary(m2_emms)
+
+#Calculate model's estimated priming effect (slopes) in kids and adults averaged across blocks
+m2_priming_slopes_ignore_block <- emtrends(m2_lm, specs = pairwise ~ age_group, var="app_nback_c",infer = T,pbkrtest.limit = 3400)
+summary(m2_priming_slopes_ignore_block)
+
+#Calculate model's estimated priming effect (slopes) in kids and adults averaged across blocks
+m2_priming_slopes <- emtrends(m2_lm, specs = pairwise ~ block_c*age_group, var="app_nback_c",infer = T,pbkrtest.limit = 3400)
+summary(m2_priming_slopes)
+
+#t-test: Adults vs kids mean identification level for primed and unprimed (not priming scores)
+t.test(mean_old ~ age_group, filter(plot_e2), var.equal = TRUE)
+t.test(mean_new ~ age_group, filter(plot_e2), var.equal = TRUE)
+
+#Regression model: In kids only, is there a developemental improvement in priming
+correct_prime_trials$age_group <- factor(correct_prime_trials$age_group,levels=c("child","adult"))
+m2_dev_traj = lm(primability_score ~ as.numeric(age_new), filter(plot_e2, age_group == 'child'))
+#Compute post-hoc t-tests between age groups (including to adults) and correct with bonferroni
+pairwise.t.test(plot_e2$primability_score,plot_e2$age_new,p.adj = 'bonf')
+
+
+##EVIDENCE THAT CHILDREN LEARN BETTER THAN ADULTS WHEN ATTENTION IS DIVIDED (E2)
+
+#N-Back Results
+
+#Nback-level: kids vs adults
+t.test(mean_nback_level ~ age_group.x, filter(master_sum), var.equal = TRUE)
+
+#Nback performance: kids vs adults
+t.test(nback_dprime ~ age_group.x, filter(master_sum), var.equal = TRUE)
+
+#Block 1 -4
+#accuracy is equated in last block (dprime)
+t.test(nback_dprime ~ age_group, filter(nback_sum_by_block_dprime,block_number == 0), var.equal = TRUE)
+t.test(nback_dprime ~ age_group, filter(nback_sum_by_block_dprime,block_number == 1), var.equal = TRUE)
+t.test(nback_dprime ~ age_group, filter(nback_sum_by_block_dprime,block_number == 2), var.equal = TRUE)
+t.test(nback_dprime ~ age_group, filter(nback_sum_by_block_dprime,block_number == 3), var.equal = TRUE)
+
+
+#nback x priming correlations
+only_kids <- filter(master_sum, age_group.x == 'child')
+only_ad <- filter(master_sum, age_group.x != 'child')
+
+#In both kids and adults,  no correlation between nback level and priming
+cor.test(only_kids$mean_nback_level, only_kids$primability_score)
+cor.test(only_ad$mean_nback_level, only_ad$primability_score)
+
+#In both kids and adults,  no correlation between nback performance and priming
+cor.test(only_kids$nback_dprime, only_kids$primability_score)
+cor.test(only_ad$nback_dprime, only_ad$primability_score)
+
+#Lure analysis, lure trials only
+lure_sum <- filter(nback_data, lure == 1) %>%
+  summarize(percent_correct = 1 - (sum(user_response)/length(user_response))) # correct answer is hitting nothing
+#80% of the time they got these correct averaged overall
+
+#lure summary stats
+lure_sub_sum <- filter(nback_data, lure == 1) %>%
+  group_by(age_group, participant) %>%
+  summarize(percent_correct = 1 - (sum(user_response)/length(user_response)))
+
+#Report mean and standard deviation based on this
+lure_desc <- lure_sub_sum %>%
+  group_by(age_group) %>%
+  summarize(mean = mean(percent_correct),
+            sd = sd(percent_correct))
+
+#And t-test (kids and adults dont differ on lure trials)
+t.test(percent_correct ~ age_group, filter(lure_sub_sum), var.equal = TRUE)
+
+
+#Reliable priming effects?
+t.test(plot_e1$primability_score[which(plot_e1$age_group == 'child')], mu = 0)
+t.test(plot_e1$primability_score[which(plot_e1$age_group == 'adult')], mu = 0)
+
+#kids vs adults priming
+t.test(primability_score ~ age_group, filter(plot_e1), var.equal = TRUE)
+
+#Calculate effect sizes
+cohensD(primability_score ~ age_group, data = filter(plot_e1)) # overall
+cohensD(primability_score ~ age_group, data = filter(plot_e1_b, two_block == 1)) #only first block. Yes this is .55 eff size!
+
+#anova with block
+a1 <- aov(primability_score ~ as.factor(age_group) * as.factor(two_block), plot_e1_b)
+summary(a1)
+
+#post hoc tukeys tests
+TukeyHSD(a1)
+
+#mixed effects model
+#singularity issue
+#m1_lm <- lmer(difficulty~ app_nback_c * age_group *block_c + nback_dprime_c + (app_nback_c + block_c||participant), data=e1_only)
+
+#Singularity issue still wtih optomizer
+#m1_lm <- lmer(difficulty~ app_nback_c * age_group *block_c + nback_dprime_c + (app_nback_c + block_c|participant), data=e1_only,
+             # control=lmerControl(optimizer="bobyqa",
+                              #    optCtrl=list(maxfun=10000)))
+
+#Still singularity issue despite double ||
+#m1_lm <- lmer(difficulty~ app_nback_c * age_group *block_c + nback_dprime_c + (app_nback_c + block_c||participant), data=e1_only,
+            #  control=lmerControl(optimizer="bobyqa",
+                   #               optCtrl=list(maxfun=100000)))
+
+#So lets drop all random slopes and only estimate intercepts
+#final model as follows:
+m1_lm <- lmer(difficulty~ app_nback_c * age_group *block_c + nback_dprime_c + (1|participant), data=e1_only)
+summary(m1_lm)
+
+#centered versino of model
+m1_lm_c<- lmer(difficulty~ app_nback_c * age_group_c *block_c + nback_dprime_c + (1|participant), data=e1_only)
+summary(m1_lm_c)
+
+
+#model fit (R2)
+r.squaredGLMM(m1_lm_c)
+
+#Model table output
+tab_model(m1_lm_c)
+
+
+
+
+
+#estimated marginal means and contrasts in each block
+m1_emms <- emmeans(m1_lm, pairwise ~ app_nback_c*age_group | block_c,infer = T,pbkrtest.limit = 4842)
+summary(m1_emms)
+
+#compare priming effect/slopes (for app_nback_c) for kids and adults in each block
+m1_priming_slopes <- emtrends(m1_lm, specs = pairwise ~ block_c*age_group, var="app_nback_c",infer = T,pbkrtest.limit = 4842)
+summary(m1_priming_slopes)
+
+#ignore block emmeans and emtrends
+m1_emms_nb <- emmeans(m1_lm, pairwise ~ app_nback_c*age_group,infer = T,pbkrtest.limit = 4842)
+summary(m1_emms_nb)
+
+m1_priming_slopes_nb <- emtrends(m1_lm, specs = pairwise ~ age_group, var="app_nback_c",infer = T,pbkrtest.limit = 4842)
+summary(m1_priming_slopes_nb)
+
+
+
+#Supplement stats
+#adults vs kids mean identification level for primed and unprimed
+#t.test(mean_old ~ age_group, filter(plot_e1), var.equal = TRUE)
+#t.test(mean_new ~ age_group, filter(plot_e1), var.equal = TRUE)
+
+#model version: adults are just better at the task than kids (ignore primed vs unprimed variable)
+#estimated marginal means and contrasts, IGNORING block
+m1_emms_2 <- emmeans(m1_lm, pairwise ~ age_group | app_nback_c,infer = T,pbkrtest.limit = 4242)
+summary(m1_emms_2)
+
+#developmental trajectory on priming
+correct_prime_trials$age_group <- factor(correct_prime_trials$age_group,levels=c("child","adult"))
+m1_dev_traj = lm(primability_score ~ as.numeric(age_new), filter(plot_e1, age_group == 'child'))
+pairwise.t.test(plot_e1$primability_score,plot_e1$age_new,p.adj = 'bonf')
+
+
+
+#response time analysis
+max(e1_only$reaction_time,na.rm = TRUE) #but now we have to add the level too (difficulty)
+e1_only['full_rt'] <- NA
+for (i in 1:nrow(e1_only)) {
+  
+  #We multiply it by 1.5 because each level is 1.5... subtract 1 off difficulty to make first level clock start at 0
+  #And then we also add the reaction_time because this (is always less then 1.5) and is the time it takes at that particular level 
+  e1_only$full_rt[i] <- ((e1_only$difficulty[i]-1) * 1.5) + e1_only$reaction_time[i]
+  
+  #we gotta check to deal with NAs (theres like 88 of these)
+  #this happens (RT is na) if respond on level 8! Based on that and what I remember from running studies this is if
+  #the participant responds super super last miniute
+  #We can decide to either exclude these trials or go with my gut that its 1.5
+}
+  #rt sensitivity score analysis (pre-registered to put in supplement)
+  #FOR NOW ITS IGNORING THE NA's
+  rt_sum = filter(e1_only, !(is.na(full_rt))) %>% 
+    group_by(participant, experiment) %>% 
+    summarise(mean_rt_old = mean(full_rt[which(appeared_in_n_back_task == 1)]),
+              mean_rt_new = mean(full_rt[which(appeared_in_n_back_task == 0)]),
+              age_group = age_group[1]) %>%
+    mutate(rt_score = mean_rt_new - mean_rt_old)
+  
+  
+  #Rt for old items (distractors only) p < .00001
+  #Adults are way faster
+  t.test(mean_rt_old ~ age_group, filter(rt_sum), var.equal = TRUE)
+  
+  #and new items
+  t.test(mean_rt_new ~ age_group, filter(rt_sum), var.equal = TRUE)
+  
+  
+  #No difference overall
+  #Rt difference score (not sig, p = .3)
+  t.test(rt_score ~ age_group, filter(rt_sum), var.equal = TRUE)
+  
+
+  #also just report raw mean t-tests
+  #Experiment 1 (attention undivided)
+  t.test(mean_old ~ age_group, filter(plot_e1), var.equal = TRUE)
+  t.test(mean_new ~ age_group, filter(plot_e1), var.equal = TRUE)
+  
+  #Experiment 2 (attention divided)
+  t.test(mean_old ~ age_group, filter(plot_e2), var.equal = TRUE)
+  t.test(mean_new ~ age_group, filter(plot_e2), var.equal = TRUE)
+  
+  
+  #CORRELATION FOR OLD IMAGES ONLY X NBACK (as per pre-registration)
+  
+  #no correlation between nback level and priming
+  only_kids <- filter(master_sum, age_group.x == 'child')
+  cor.test(only_kids$mean_nback_level, only_kids$mean_old)
+  
+  only_ad <- filter(master_sum, age_group.x != 'child')
+  cor.test(only_ad$mean_nback_level, only_ad$mean_old)
+  
+  #no correlation between performance and priming
+  cor.test(only_kids$nback_dprime, only_kids$primability_score)
+  cor.test(only_ad$nback_dprime, only_ad$primability_score)
+  
+
+
+##DIVIDING ATTENTION HURTS LEARNING IN ADULTS, BUT NOT IN CHILDREN (Across experiment analysis)
+
+#adults across exp test
+t.test(primability_score ~ experiment, filter(prime_sum_participant, age_group == 'adult'), var.equal = TRUE)
+
+#and for children
+t.test(primability_score ~ experiment, filter(prime_sum_participant, age_group == 'child'), var.equal = TRUE)
+
+#Anova with age and experiment (but not block)
+a_nb <- aov(primability_score ~ as.factor(experiment) * as.factor(age_group), prime_sum_participant_block)
+summary(a_nb)
+
+#post hoc tukeys
+TukeyHSD(a_nb)
+
+
+#3-way anova with block and experiment and age
+a3 <- aov(primability_score ~ as.factor(experiment) * as.factor(two_block) * as.factor(age_group), prime_sum_participant_block)
+summary(a3)
+
+#post hoc tukeys
+TukeyHSD(a3)
+
+#across experiment big model (Im wondering if we should literally just run this ONE big)
+#I tried adding nback_dprime_c in but it breaks with error contrasts can be applied only to factors with 2 or more levels.. so im not including in this model
+# across_exp_lm <- lmer(difficulty~ app_nback_c * age_group *block_c * experiment + (app_nback_c + block_c|participant), correct_prime_trials)
+# summary(across_exp_lm)
+# #has singularity issue lets try with optomizer
+# 
+# #Singularity issue still wtih optomizer and fails to converge
+# across_exp_lm  <- lmer(difficulty~ app_nback_c * age_group *block_c * experiment+ (app_nback_c + block_c|participant), data = correct_prime_trials,
+#    control=lmerControl(optimizer="bobyqa",
+#  optCtrl=list(maxfun=10000)))
+# 
+# #Double || still has singularity issue
+# across_exp_lm  <- lmer(difficulty~ app_nback_c * age_group *block_c * experiment+ (app_nback_c + block_c||participant), data = correct_prime_trials,
+#                        control=lmerControl(optimizer="bobyqa",
+#                                            optCtrl=list(maxfun=10000)))
+
+#remove random slopes THIS IS THE MODEL WE USE
+across_exp_lm <- lmer(difficulty~ app_nback_c * age_group *block_c * experiment + (1|participant), correct_prime_trials)
+summary(across_exp_lm)
+
+tab_model(across_exp_lm)
+
+
+#centered age aND EXPERIMENT
+across_exp_lm_c <- lmer(difficulty~ app_nback_c * age_group_c *block_c * experiment_c + (1|participant), correct_prime_trials)
+summary(across_exp_lm_c)
+
+tab_model(across_exp_lm_c)
+
+#basic emmeans conterasts (not reported in teh paper)
+across_emms <- emmeans(across_exp_lm, pairwise ~ app_nback_c*age_group*experiment | block_c,infer = T,pbkrtest.limit = 8242)
+summary(across_emms)
+      
+#collapses across block learning sensitivity
+across_priming_slopes_no_block <- emtrends(across_exp_lm, specs = pairwise ~ age_group*experiment, var="app_nback_c",infer = T,pbkrtest.limit = 8242)
+summary(across_priming_slopes_no_block)
+
+#in each block learning senstivity    
+across_priming_slopes <- emtrends(across_exp_lm, specs = pairwise ~ block_c*age_group*experiment, var="app_nback_c",infer = T,pbkrtest.limit = 8242)
+summary(across_priming_slopes)
+
+#Supplementary
+
+max(e2_only$reaction_time,na.rm = TRUE) #but now we have to add the level too (difficulty)
+e2_only['full_rt'] <- NA
+for (i in 1:nrow(e2_only)) {
+  
+  #We multiply it by 1.5 because each level is 1.5... subtract 1 off difficulty to make first level clock start at 0
+  #And then we also add the reaction_time because this (is always less then 1.5) and is the time it takes at that particular level 
+  e2_only$full_rt[i] <- ((e2_only$difficulty[i]-1) * 1.5) + e2_only$reaction_time[i]
+  
+  #we gotta check to deal with NAs (theres like 88 of these)
+  #this happens (RT is na) if respond on level 8! Based on that and what I remember from running studies this is if
+  #the participant responds super super last miniute
+  #We can decide to either exclude these trials or go with my gut that its 1.5
+}
+#rt sensitivity score analysis (pre-registered to put in supplement)
+#FOR NOW ITS IGNORING THE NA's
+rt_sum = filter(e2_only, !(is.na(full_rt))) %>% 
+  group_by(participant, experiment) %>% 
+  summarise(mean_rt_old = mean(full_rt[which(appeared_in_n_back_task == 1)]),
+            mean_rt_new = mean(full_rt[which(appeared_in_n_back_task == 0)]),
+            age_group = age_group[1]) %>%
+  mutate(rt_score = mean_rt_new - mean_rt_old)
+ 
+
+#Rt for old items (distractors only)
+#Adults are way faster
+t.test(mean_rt_old ~ age_group, filter(rt_sum), var.equal = TRUE)
+#New items
+t.test(mean_rt_new ~ age_group, filter(rt_sum), var.equal = TRUE)
+
+#No difference overall
+#Rt difference score
+t.test(rt_score ~ age_group, filter(rt_sum), var.equal = TRUE)
+
+
+
+
+
+
 
 
 ```
 
 
 
-
-
-
-
-
-## Other figure visualizations chunks
-
-```{r other_figures, echo=FALSE}
-
-
-
-  nback_summary_by_block_lvl <- select(nback_summary,participant, age_group,nback_level_1, nback_level_2,nback_level_3,nback_level_4)
-  nback_block_long_lvl <- gather(nback_summary_by_block_lvl, block, level, nback_level_1:nback_level_2:nback_level_3:nback_level_4)
-  
-  #rename to numbers
-  for (i in 1:nrow(nback_block_long_lvl)){
-    
-    if (nback_block_long_lvl$block[i] == 'nback_level_1') {
-      nback_block_long_lvl$block[i] <- 1
-    } else if (nback_block_long_lvl$block[i] == 'nback_level_2') {
-      nback_block_long_lvl$block[i] <- 2
-    } else if (nback_block_long_lvl$block[i] == 'nback_level_3') {
-      nback_block_long_lvl$block[i] <- 3
-    } else if (nback_block_long_lvl$block[i] == 'nback_level_4') {
-      nback_block_long_lvl$block[i] <- 4
-    }
-    
-  }
-  
-  #normalize to proportion of subjects
-  nback_count_table_each_block <-  nback_block_long_lvl %>%
-    group_by(age_group, level,block) %>%
-    summarise(count_shit = length(age_group)) %>%
-    mutate(normalize_shit = ifelse(age_group == 'child', count_shit/53,count_shit/60))
-  
-  nback_count_table_each_block$age_group <- factor(nback_count_table_each_block$age_group,levels=c("child","adult"))
-  
-  
-  #I like this graph  for supplement
-  nback_mean_level_block <- ggplot(filter(nback_count_table_each_block), aes (x = as.factor(level),y= normalize_shit, fill = age_group)) +
-    geom_bar(stat="identity", position=position_dodge()) + theme_classic()+
-    labs(y = 'Proportion of subjects', x = "N-Back Level") + ggtitle('N-Back Level in Each Block')+
-    scale_fill_manual(values=c(child_hex,adult_hex)) +
-    facet_wrap(~block,nrow = 1) +
-    theme_classic(base_size = 20) +
-    theme(,axis.text.x=element_text(angle=45, hjust=1),legend.position = 'top') +
-    scale_x_discrete(labels = c('1-back','2-back','3-back')) 
-  nback_mean_level_block
-
-```
 
 
